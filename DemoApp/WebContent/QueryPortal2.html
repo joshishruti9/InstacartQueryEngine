@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  padding: 10px;
+  background-color:black;
+}
+
+.header {
+  padding: 30px;
+  text-align: center;
+  background-color: yellow;
+}
+
+.header h1 {
+  font-size: 60px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color:red;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration:underline;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: grey;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: red;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.leftcolumn {   
+  float: left;
+  width: 100%;
+}
+
+.right {
+  float:right;
+  width:50%;
+  padding: 10px;
+}
+
+.clearfix {
+  overflow:auto;
+}
+
+
+.fakeimg {
+  background-color:silver;
+  width: 50%;
+  padding: 5px;
+}
+
+.card {
+  background-color:dodgerblue;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.button { 
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>DATABASE QUERYING</h1>
+</div>
+
+<div class="topnav"><p></p></div>
+
+<div class="row">
+  <div class="left column">
+    <div class="card">
+      <h2>ER Diagram</h2>
+      <a href="https://dbds-admin.s3-us-west-2.amazonaws.com/Picture1.png">
+      <img class="fakeimg" src="https://dbds-admin.s3-us-west-2.amazonaws.com/Picture1.png" style="height:275px;"></img>
+      </a> 
+    </div>
+    <div class="card">
+    <h2>Mode of Querying</h2>
+    <div class="clearfix">
+      <div class="fakeimg" style="background-color:dodgerblue;">
+    <h4>Choose one of the following</h4></div>
+    <form action="MyServlet2" method="post">
+    <label class="container">MYSQL
+    <input type="radio" checked="checked" name="rdbms" value="mysql">
+    <span class="checkmark"></span>
+    </label>
+    <br><br>
+    <label class="container">REDSHIFT
+    <input type="radio" name="rdbms" value="redshift">
+    <span class="checkmark"></span>
+    </label>
+    <br><br>
+    
+    <h4>Enter your query here:</h4>
+    <textarea name="query" rows="30" cols="30" style="width:65%;"></textarea>
+  <br><br>
+    <input type="submit" value="Run Query">
+    </form>
+    </div>
+    </div>
+  </div>
+  </div>
+  
+</body>
+</html>
+    
+    
+    
